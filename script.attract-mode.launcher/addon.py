@@ -18,7 +18,7 @@ __localizedMessages__ = __addon__.getLocalizedString
 
 
 # Method to print logs on a standard way
-def log(message, level=xbmc.LOGNOTICE):
+def log(message, level=xbmc.LOGERROR):
     xbmc.log('[%s:v%s] %s' % (__addonId__, __version__, message.encode('utf-8')), level)
 # end of log
 
@@ -31,12 +31,12 @@ executable = ""
 # We are going to ask on which platform
 if platform.system() == "Windows":
     # If is Windows
-    executable = __addon__.getSetting('windowsExecutable').decode('utf-8')
+    executable = __addon__.getSetting('windowsExecutable')
     log("Loaded Windows executable location from Settings: " + executable)
 
 else:
     # Linux and others
-    executable = __addon__.getSetting('linuxExecutable').decode('utf-8')
+    executable = __addon__.getSetting('linuxExecutable')
     log("Loaded Linux executable location from Settings: " + executable)
 
 
